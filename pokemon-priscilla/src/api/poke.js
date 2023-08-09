@@ -1,4 +1,3 @@
-
 export async function getPokelist(paginaprincipal) {
   try {
     const requestPoke = await fetch(
@@ -16,12 +15,14 @@ export async function getPokelist(paginaprincipal) {
           id: data.id,
           name: data.name,
           imageUrl: data.sprites.other.home.front_default,
+          types: data.types,
+          sprites: data.sprites,
         };
       })
     );
     return Detallespokemon;
   } catch (error) {
-    console.warn("salio mal el api")
+    console.warn("salio mal el llamado al api");
     return [];
   }
 }

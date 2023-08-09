@@ -8,6 +8,8 @@
   font-weight: bold;
   margin-top: 8px;
   color: black;
+  font-size: medium;
+  text-decoration: none;
 }
 
 .card {
@@ -22,6 +24,7 @@
   cursor: pointer;
   display: flex;
   flex: wrap;
+  margin-top: 50px;
 }
 
 .card:hover {
@@ -79,4 +82,10 @@
   height: 100%;
   font-weight: 800;
   font-size: 1.5em;
+}
+.types {
+  height: 20px;
+  font-size: small;
+  list-style: none;
+  text-decoration: none;
 }

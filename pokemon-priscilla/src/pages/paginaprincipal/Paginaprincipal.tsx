@@ -3,13 +3,15 @@ import { getPokelist } from "../../api/poke";
 import { useNavigate, Link } from "react-router-dom";
 import PokemonCard from "../../components/cards/Cardspokemon";
 import "./Paginaprincipal.css";
+import Footer from "../../components/Footer/Footer";
+import NavBar from "../../components/Navbar/Navbar";
 
 function Paginaprincipal() {
   const [pokemons, setPokemons] = useState<any[]>([]);
+  const [paginaInicio, setpaginaInicio] = useState<number>(1);
 
   async function loadPokemon() {
     const datosPoke = await getPokelist(1);
-    console.log("Pokemon", datosPoke);
     setPokemons(datosPoke);
   }
   useEffect(() => {
@@ -21,18 +23,42 @@ function Paginaprincipal() {
     navigate("/pokemon/" + id);
   };
 
+  useEffect(() => {
+    const fetchPokemonsData = async () => {
+      const pokemonDetails = await getPokelist(paginaInicio);
+      setPokemons(pokemonDetails);
+    };
+    fetchPokemonsData();
+  }, [paginaInicio]);
+
+  const saltoPagina = (page: number) => {
+    setpaginaInicio(page);
+  };
   return (
     <div>
-      <h1>Pagina Principal</h1>
+      <NavBar />
       <div>
         <div className="pokemon-list">
           {pokemons.map((pokemon) => (
-            <Link key={pokemon.id} to={`/pokemon/${pokemon.id}`}>
-              <PokemonCard name={pokemon.name} imageUrl={pokemon.imageUrl} />
+            <Link
+              key={pokemon.id}
+              to={`/pokemon/${pokemon.id}`}
+              className="link"
+            >
+              <PokemonCard
+                name={pokemon.name}
+                imageUrl={
+                  pokemon.sprites.versions["generation-v"]["black-white"][
+                    "animated"
+                  ].front_default
+                }
+                types={pokemon.types}
+              />
             </Link>
           ))}
         </div>
       </div>
+      <Footer paginaInicio={paginaInicio} cambioPagina={saltoPagina} />
     </div>
   );
 }
