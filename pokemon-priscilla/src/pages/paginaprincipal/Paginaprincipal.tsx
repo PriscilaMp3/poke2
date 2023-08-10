@@ -8,7 +8,7 @@ import NavBar from "../../components/Navbar/Navbar";
 
 function Paginaprincipal() {
   const [pokemons, setPokemons] = useState<any[]>([]);
-  const [paginaInicio, setpaginaInicio] = useState<number>(1);
+  const [paginaInicio, setpaginaInicio] = useState<number>(1); //pagina
 
   async function loadPokemon() {
     const datosPoke = await getPokelist(1);
@@ -25,13 +25,14 @@ function Paginaprincipal() {
 
   useEffect(() => {
     const fetchPokemonsData = async () => {
-      const pokemonDetails = await getPokelist(paginaInicio);
+      const pokemonDetails = await getPokelist(paginaInicio); //pagina//
       setPokemons(pokemonDetails);
     };
     fetchPokemonsData();
   }, [paginaInicio]);
 
   const saltoPagina = (page: number) => {
+    //pagina
     setpaginaInicio(page);
   };
   return (
