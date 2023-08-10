@@ -26,3 +26,9 @@ export async function getPokelist(paginaprincipal) {
     return [];
   }
 }
+
+export async function getPokemon(id) {
+  const requestPoke = await fetch("https://pokeapi.co/api/v2/pokemon/" + id);
+  const Pokedata = await requestPoke.json();
+  return Pokedata;
+}
