@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { getEvolutionChain } from "../../api/poke";
+import "./evoluciones.css";
 
 function Paginaevoluciones() {
   const navigate = useNavigate();
@@ -18,12 +19,15 @@ function Paginaevoluciones() {
   }, [id]);
 
   return (
-    <div>
+    <div className="cardevolution">
       <div className="container"></div>
       {Listevolution.map((evolution, i) => (
         <div key={i}>
           {evolution.name}
-          <img src={evolution.sprites.front_shiny} />
+          <img
+            className="evolution"
+            src={evolution.sprites.other.home.front_default}
+          />
         </div>
       ))}
     </div>
