@@ -19,9 +19,12 @@ function Paginaevoluciones() {
 
   return (
     <div>
-      {Listevolution.map((evolution) => (
-        <li>{evolution.name}</li>
-        // <li>{evolution.name}</li>
+      <div className="container"></div>
+      {Listevolution.map((evolution, i) => (
+        <div key={i}>
+          {evolution.name}
+          <img src={evolution.sprites.front_shiny} />
+        </div>
       ))}
     </div>
   );
