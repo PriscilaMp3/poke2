@@ -6,7 +6,21 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./Navbar.css";
 
-function NavBar() {
+interface Navbarproops {
+  search: (texto: string) => void;
+  searchpoke: () => void;
+}
+
+const NavBar = ({ search, searchpoke }: Navbarproops) => {
+  const handleChange = (e: any) => {
+    search(e.target.value);
+  };
+
+  const handleSearch = (e: any) => {
+    e.preventDefault();
+    searchpoke();
+  };
+
   return (
     <Navbar className="justify-content-between d-flex Navi">
       <img
@@ -20,16 +34,20 @@ function NavBar() {
             <Form.Control
               type="text"
               placeholder="Search"
+              onChange={handleChange}
               className=" mr-sm-2"
             />
           </Col>
           <Col className="boton" xs="auto">
-            <Button type="submit">Submit</Button>
+            <Button type="submit" onClick={handleSearch}>
+              Submit
+            </Button>
           </Col>
         </Row>
       </Form>
       <div></div>
     </Navbar>
   );
-}
+};
+
 export default NavBar;
