@@ -22,7 +22,7 @@ const NavBar = ({ search, searchpoke }: Navbarproops) => {
   };
 
   return (
-    <Navbar className="justify-content-between d-flex Navi">
+    <Navbar className="Navi">
       <img
         className="imagenPokemon"
         src="https://archives.bulbagarden.net/media/upload/a/a7/Sun_Version_logo_Jp.png"
@@ -30,18 +30,19 @@ const NavBar = ({ search, searchpoke }: Navbarproops) => {
       />
       <Form>
         <Row>
-          <Col xs="auto">
+          <div className="input">
             <Form.Control
               type="text"
               placeholder="Search"
               onChange={handleChange}
               className=" mr-sm-2"
             />
-          </Col>
-          <Col className="boton" xs="auto">
-            <Button type="submit" onClick={handleSearch}>
-              Submit
+            <Button className="bestie" type="submit" onClick={handleSearch}>
+            Buscar
             </Button>
+          </div>
+          <Col className="boton" xs="auto">
+            
           </Col>
         </Row>
       </Form>

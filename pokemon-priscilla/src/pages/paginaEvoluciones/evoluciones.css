@@ -1,5 +1,22 @@
+@font-face {
+  font-family: 'pokemon';
+  src: url("go3v2.ttf") format(truetype);
+}
+
+
 .cardevolution {
+  height: 100vh;
   column-count: 3;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #00d2ff;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #928DAB, #00d2ff);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #928DAB, #00d2ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  align-items: center;
 }
 .evolution {
   width: 150px;
@@ -12,4 +29,13 @@
   100% {
     transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
   }
+}
+
+.div-details{
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+  font-family: "pokemon";
+  font-size: 30px;
+  font-weight: 100;
 }

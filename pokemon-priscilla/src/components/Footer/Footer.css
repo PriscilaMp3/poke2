@@ -1,0 +1,10 @@
+.paginacion{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.btn2 {
+    margin-top: 2%;
+    height: 40px;
+}

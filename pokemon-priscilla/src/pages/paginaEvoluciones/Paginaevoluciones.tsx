@@ -22,7 +22,7 @@ function Paginaevoluciones() {
     <div className="cardevolution">
       <div className="container"></div>
       {Listevolution.map((evolution, i) => (
-        <div key={i}>
+        <div key={i} className="div-details">
           {evolution.name}
           <img
             className="evolution"

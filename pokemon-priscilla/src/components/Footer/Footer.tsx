@@ -1,4 +1,5 @@
 import React from "react";
+import "./Footer.css"
 
 interface Footerprops {
   paginaInicio: number;
@@ -7,11 +8,11 @@ interface Footerprops {
 const Footer = ({ paginaInicio, cambioPagina }: Footerprops) => {
   return (
     <footer>
-      <div className="row align-items-center justify-content-center">
-        <div className="col-md-6">
-          <div className="pagination">
+      <div className="paginacion">
+        {/* <div className="col-md-6">
+          <div className="pagination"> */}
             <button
-              className="btn btn-warning"
+              className="bestie btn2 btn-warning"
               onClick={() => cambioPagina(paginaInicio - 1)}
               disabled={paginaInicio === 1}
             >
@@ -19,15 +20,15 @@ const Footer = ({ paginaInicio, cambioPagina }: Footerprops) => {
             </button>
             <span className="form-control"> Pagina {paginaInicio}</span>
             <button
-              className="btn btn-warning"
+              className="bestie btn2 btn-warning"
               onClick={() => cambioPagina(paginaInicio + 1)}
               disabled={paginaInicio === 65}
             >
               Siguiente
             </button>
-          </div>
-        </div>
-      </div>
+          {/* </div>
+        </div>*/}
+      </div> 
     </footer>
   );
 };
