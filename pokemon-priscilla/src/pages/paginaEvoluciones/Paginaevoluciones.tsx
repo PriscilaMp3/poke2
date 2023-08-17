@@ -20,17 +20,28 @@ function Paginaevoluciones() {
 
   return (
     <div className="cardevolution">
-      <div className="container"></div>
-      {Listevolution.map((evolution, i) => (
+
+
+
+{Listevolution.map((evolution, i) => (
+  <div className="cardEvo">
+    <div className="container">
         <div key={i} className="div-details">
-          {evolution.name}
+          <h2>{evolution.name}</h2>
+          
           <img
             className="evolution"
             src={evolution.sprites.other.home.front_default}
           />
         </div>
+        </div>
+        </div>
       ))}
-    </div>
+      </div>
+
+      
+      
+    
   );
 }
 
